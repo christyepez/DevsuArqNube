@@ -1,0 +1,69 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Azure Cloud Native Architecture" id="azure-arch-001">
+    <mxGraphModel dx="1180" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Frontend -->
+        <mxCell id="frontend" value="Frontend: Web App (Azure App Service)" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="cdn" value="CDN (Azure CDN)" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="80" y="180" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Backend -->
+        <mxCell id="backend" value="Backend: API App / AKS" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="360" y="100" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="api_mgmt" value="API Management" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="360" y="180" width="240" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Database -->
+        <mxCell id="database" value="Azure SQL Database" style="shape=cylinder;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="680" y="100" width="160" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Storage -->
+        <mxCell id="blob" value="Blob Storage" style="rounded=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="680" y="220" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Security -->
+        <mxCell id="gateway" value="Application Gateway + WAF" style="rounded=1;fillColor=#f8f8f8;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="80" y="20" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="aad" value="Azure Active Directory" style="rounded=1;fillColor=#ddeeff;strokeColor=#3399ff;" vertex="1" parent="1">
+          <mxGeometry x="360" y="20" width="240" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Monitoring -->
+        <mxCell id="monitor" value="Azure Monitor + App Insights" style="rounded=1;fillColor=#fff4cc;strokeColor=#e6b800;" vertex="1" parent="1">
+          <mxGeometry x="680" y="20" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Connections -->
+        <mxCell id="edge1" style="endArrow=block;strokeColor=#000000;" edge="1" parent="1" source="frontend" target="backend">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge2" style="endArrow=block;strokeColor=#000000;" edge="1" parent="1" source="backend" target="database">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge3" style="endArrow=block;strokeColor=#000000;" edge="1" parent="1" source="backend" target="blob">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge4" style="endArrow=block;strokeColor=#000000;" edge="1" parent="1" source="gateway" target="frontend">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge5" style="endArrow=block;strokeColor=#000000;" edge="1" parent="1" source="aad" target="frontend">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge6" style="endArrow=block;strokeColor=#000000;" edge="1" parent="1" source="monitor" target="backend">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
